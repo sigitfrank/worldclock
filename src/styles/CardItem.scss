@@ -1,0 +1,101 @@
+.card-item {
+    margin: .25rem;
+    position: relative;
+    box-shadow: 1px 1px 5px #DDD;
+    transition: .25s;
+    width: 100%;
+
+    .card-header {
+        border: none;
+        padding: 0;
+        position: relative;
+
+        &__overlay {
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFF;
+            flex-direction: column;
+
+            span:first-child {
+                font-size: 1.25rem;
+                font-weight: bold;
+            }
+
+            span:last-child {
+                font-size: .75rem;
+            }
+
+        }
+    }
+
+    .card-body {
+        position: relative;
+
+        .card-title {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.75rem;
+        }
+
+        .card-subtitle {
+            text-align: center;
+            font-size: .75rem;
+            margin: .5rem 0;
+        }
+
+        .card-detail {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            border-top: 1px solid #DDD;
+
+            .item {
+                padding: 1rem;
+                flex: 1;
+                text-align: center;
+            }
+
+            .item.right {
+                cursor: pointer;
+                border-left: 1px solid #DDD;
+            }
+        }
+    }
+
+    .card-circle {
+        display: flex;
+        justify-content: center;
+        inset: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 10px;
+
+        span {
+            width: 75px;
+            height: 75px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+            padding: 1rem;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+            color: #FFF;
+            font-size: 1.5rem;
+            position: relative;
+        }
+    }
+}
+
+.card-item.active,
+.card-item:hover {
+    box-shadow: 1px 1px 5px #000;
+}

@@ -1,4 +1,5 @@
-````markdown
+markdown
+
 # Vite Worldclock React App
 
 This project is a React app using Vite as the build tool and development server.
@@ -26,7 +27,6 @@ To start developing, follow these steps:
    git clone https://github.com/sigitfrank/worldclock.git
    cd worldclock
    ```
-````
 
 2. Install the dependencies:
 

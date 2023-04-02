@@ -6,9 +6,10 @@ let interval
 
 export const useCurrentClock = () => {
     const [myResidence, setMyResidence] = useState(null);
+    const [isLoading, setILoading] = useState(false)
 
     useEffect(() => {
-
+        setILoading(true)
         let mounted = false
 
         const getCurrentClock = async () => {
@@ -28,8 +29,10 @@ export const useCurrentClock = () => {
                     }
                     setMyResidence(myResidenceFormatted)
                 }
+                setILoading(false)
             } catch (error) {
                 console.log('error', error)
+                setILoading(false)
             }
         }
 
@@ -45,6 +48,7 @@ export const useCurrentClock = () => {
     }, [])
 
     return {
-        myResidence
+        myResidence,
+        isLoading
     }
 }

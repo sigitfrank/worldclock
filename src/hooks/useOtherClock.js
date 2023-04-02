@@ -26,10 +26,11 @@ export const useCreateClock = async (formState) => {
 let interval
 export const useGetClocks = () => {
     const [otherResidences, setOtherResidences] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
         let mounted = false
-
+        setIsLoading(true)
 
         if (!mounted) {
 
@@ -59,8 +60,10 @@ export const useGetClocks = () => {
                         return newOtherResidence
                     }));
                     setOtherResidences(result)
+                    setIsLoading(false)
                 } catch (error) {
                     console.log('error', error)
+                    setIsLoading(false)
                 }
             }
 
@@ -78,6 +81,7 @@ export const useGetClocks = () => {
 
     return {
         otherResidences,
-        setOtherResidences
+        setOtherResidences,
+        isLoading,
     }
 }

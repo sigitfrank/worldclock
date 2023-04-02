@@ -20,8 +20,8 @@ function App() {
     add: false
   });
   const [selectedClock, setSelectedClock] = useState(null)
-  const { otherResidences, setOtherResidences } = useGetClocks()
-  const { myResidence } = useCurrentClock()
+  const { otherResidences, setOtherResidences, isLoading: isGetClocksLoading } = useGetClocks()
+  const { myResidence, isLoading } = useCurrentClock()
 
   const toggleModal = (key, value) => {
     setShow(prev => ({ ...prev, [key]: value }))
@@ -41,6 +41,8 @@ function App() {
     setOtherResidences(filteredOtherResidences)
     setLocalStorage(keyOtherResidence, JSON.stringify(filteredOtherResidences))
   }
+
+  if (isLoading || isGetClocksLoading) return null
 
   return (<>
     <div className="App">

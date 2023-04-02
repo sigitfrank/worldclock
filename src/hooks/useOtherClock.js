@@ -67,9 +67,9 @@ export const useGetClocks = () => {
                 }
             }
 
-            interval = setInterval(() => {
-                setInitOtherResidence()
-            }, 1000);
+            // interval = setInterval(() => {
+            setInitOtherResidence()
+            // }, 1000);
 
         }
 

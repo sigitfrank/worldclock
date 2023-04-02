@@ -16,7 +16,7 @@ export const getTime = (datetime, withOffset = false, date) => {
         let hours = timestampDate.getUTCHours() + getOffsetTime(date);
         if (isMoreThanADay) hours = getOffsetTime(date) - (24 - timestampDate.getUTCHours())
         const minutes = timestampDate.getUTCMinutes();
-        const time = getHoursMinute(hours, minutes)
+        const time = getHoursMinute(Math.abs(hours), minutes)
         return time
     }
     const hours = timestampDate.getHours();
@@ -67,5 +67,5 @@ export const getTimeDiff = (time2) => {
 
     const resultText = Math.round(timeDiff) < 0 ? "behind" : "ahead";
 
-    return `${diffHours} hours ${resultText}`
+    return `${Math.round(diffHours)} hours ${resultText}`
 }

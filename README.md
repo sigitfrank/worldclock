@@ -28,8 +28,6 @@ To start developing, follow these steps:
    ```
 ````
 
-Replace `{your_github_username}` and `{your_repository_name}` with the actual repository information.
-
 2. Install the dependencies:
 
    ```bash
@@ -43,13 +41,3 @@ Replace `{your_github_username}` and `{your_repository_name}` with the actual re
    ```
 
    This will open your default web browser and navigate to http://127.0.0.1:5173/. The app will automatically reload when you make changes to the source code.
-
-## Building for Production
-
-To build the app for production, run:
-
-```bash
-npm run build
-```
-
-This will generate the production-ready files in the `dist` folder. You can serve this folder with any static site hosting service.

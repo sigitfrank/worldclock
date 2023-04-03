@@ -37,9 +37,11 @@ export const useGetClocks = () => {
             const setInitOtherResidence = async () => {
 
                 const initOtherResidence = getLocalStorage(keyOtherResidence)
-                if (!initOtherResidence) return
+                if (!initOtherResidence) {
+                    setIsLoading(false)
+                    return
+                }
                 const otherResidences = JSON.parse(initOtherResidence)
-
                 try {
                     const result = await Promise.all(otherResidences.map(async (item) => {
                         const response = await fetch(`http://worldtimeapi.org/api/timezone/${item.timezone}`)
@@ -67,9 +69,9 @@ export const useGetClocks = () => {
                 }
             }
 
-            // interval = setInterval(() => {
-            setInitOtherResidence()
-            // }, 1000);
+            interval = setInterval(() => {
+                setInitOtherResidence()
+            }, 1000);
 
         }
 

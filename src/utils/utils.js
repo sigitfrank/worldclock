@@ -16,12 +16,14 @@ export const getTime = (datetime, withOffset = false, date) => {
         let hours = timestampDate.getUTCHours() + getOffsetTime(date);
         if (isMoreThanADay) hours = getOffsetTime(date) - (24 - timestampDate.getUTCHours())
         const minutes = timestampDate.getUTCMinutes();
-        const time = getHoursMinute(Math.abs(hours), minutes)
+        const seconds = timestampDate.getUTCSeconds();
+        const time = getHoursMinute(Math.abs(hours), minutes, seconds)
         return time
     }
     const hours = timestampDate.getHours();
     const minutes = timestampDate.getMinutes();
-    const time = getHoursMinute(hours, minutes)
+    const seconds = timestampDate.getSeconds();
+    const time = getHoursMinute(hours, minutes, seconds)
     return time
 }
 
@@ -45,7 +47,11 @@ export const getOffsetTime = (timestamp) => {
     return offsetValue
 }
 
-export const getHoursMinute = (hours, minutes) => `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
+export const getHoursMinute = (hours, minutes, seconds) => {
+    let hms = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`
+    if (seconds) hms = `${hms}:${seconds.toString().padStart(2, "0")}`
+    return hms
+};
 
 export const getTimeDiff = (time2) => {
     const currentTime = new Date();

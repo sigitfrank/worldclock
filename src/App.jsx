@@ -13,12 +13,12 @@ import { useGetClocks } from './hooks/useOtherClock';
 
 export const keyOtherResidence = 'otherResidences'
 
-let interval
 function App() {
   const [show, setShow] = useState({
     delete: false,
     add: false
   });
+  console.log('show', show)
   const [selectedClock, setSelectedClock] = useState(null)
   const { otherResidences, setOtherResidences, isLoading: isGetClocksLoading } = useGetClocks()
   const { myResidence, isLoading } = useCurrentClock()

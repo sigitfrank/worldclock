@@ -59,8 +59,8 @@ const AddModal = ({ show, toggleModal, onCreateClock }) => {
         setFormState(initState)
     }
 
-    const initOtherResidence = getLocalStorage(keyOtherResidence)
-    if (!initOtherResidence) return
+    let initOtherResidence = getLocalStorage(keyOtherResidence)
+    if (!initOtherResidence) initOtherResidence = '[]'
     const otherResidences = JSON.parse(initOtherResidence).map(r => r.city)
     const filteredAlloweCities = allowedCities.filter(c => !otherResidences.includes(c.value))
     return <Modal show={show} onHide={() => toggleModal('add', false)} centered>

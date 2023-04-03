@@ -18,7 +18,6 @@ function App() {
     delete: false,
     add: false
   });
-  console.log('show', show)
   const [selectedClock, setSelectedClock] = useState(null)
   const { otherResidences, setOtherResidences, isLoading: isGetClocksLoading } = useGetClocks()
   const { myResidence, isLoading } = useCurrentClock()
